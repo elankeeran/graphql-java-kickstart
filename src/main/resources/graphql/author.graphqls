@@ -2,6 +2,7 @@ type Author {
   id: ID!
   firstName: String!
   lastName: String!
+  avatar: String
 }
 
 type Query {
@@ -11,5 +12,7 @@ type Query {
 
 type Mutation {
   newAuthor(firstName: String!, lastName: String!) : Author!
+  updateAvatar(avatar: Upload!): Author
 }
 
+scalar Upload

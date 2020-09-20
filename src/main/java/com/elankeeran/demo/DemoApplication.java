@@ -7,6 +7,8 @@ import com.elankeeran.demo.repository.BookRepository;
 import com.elankeeran.demo.resolver.BookResolver;
 import com.elankeeran.demo.resolver.Mutation;
 import com.elankeeran.demo.resolver.Query;
+import graphql.kickstart.servlet.apollo.ApolloScalars;
+import graphql.schema.GraphQLScalarType;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,6 +22,10 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	@Bean
+	public GraphQLScalarType uploadScalar() {
+		return ApolloScalars.Upload;
+	}
 
 	@Bean
 	public BookResolver authorResolver(AuthorRepository authorRepository) {
